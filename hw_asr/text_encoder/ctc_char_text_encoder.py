@@ -25,7 +25,10 @@ class CTCCharTextEncoder(CharTextEncoder):
         for ind in inds:
             if ind == 0 or (len(new_inds) > 0 and ind == new_inds[-1]):
                 continue
-            new_inds.append(ind)
+            if torch.is_tensor(ind):
+                new_inds.append(ind.item())
+            else:
+                new_inds.append(ind)
         line = ''.join([self.ind2char[x] for x in new_inds])
         return line
 

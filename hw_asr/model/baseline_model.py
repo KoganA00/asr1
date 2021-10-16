@@ -15,7 +15,7 @@ class BaselineModel(BaseModel):
           #  nn.ReLU(),
            # nn.Linear(in_features=fc_hidden, out_features=n_class)
         #)
-        self.rnn = nn.RNN(input_size = n_feats, hidden_size=128, num_layers=6)
+        self.rnn = nn.RNN(input_size = n_feats, hidden_size=128, num_layers=10)
         self.out = nn.Linear(in_features=128, out_features=n_class)
 
 

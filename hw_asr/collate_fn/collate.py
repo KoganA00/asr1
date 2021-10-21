@@ -38,7 +38,7 @@ def collate_fn(dataset_items: List[dict]):
         result_batch['spectrogram'][ii, :data["spectrogram"].shape[-1], :] = torch.transpose(data["spectrogram"][0], 0, 1)
         result_batch['spectrogram_length'][ii] = int(data["spectrogram"].shape[-1])
         result_batch['text_encoded'][ii, :data['text_encoded'].shape[-1]] = data['text_encoded'][0]
-        result_batch["text_encoded_length"][ii] = int(len(data["text_encoded"]))
+        result_batch["text_encoded_length"][ii] = int(len(data["text_encoded"][0]))
         result_batch["text"].append(data["text"])
 
     return result_batch
